@@ -2,9 +2,16 @@
   <section id="main">
     <h1>影院热映</h1>
     <ul class="movie">
-      <li
+      <router-link
+      tag="li"
       v-for="item in movies"
       :key="item.id"
+      :to="{
+        name:'detail',
+        params:{
+          id:item.id
+        }
+      }"
       >
         <img :src="item.cover.url">
         <p>{{ item.title }}</p>
@@ -19,7 +26,7 @@
           <span class="star">★</span>
           <b>{{ getGrade (item) }}</b>
         </section>
-      </li>
+      </router-link>
     </ul>
   </section>
 </template>
