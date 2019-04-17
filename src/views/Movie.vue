@@ -7,7 +7,7 @@
       v-for="item in movies"
       :key="item.id"
       :to="{
-        name:'detail',
+        name:'movies',
         params:{
           id:item.id
         }
@@ -18,12 +18,9 @@
         <section class="remark" v-if="item.null_rating_reason">
           <b>{{ item.null_rating_reason }}</b>
         </section>
-         <section class="remark" v-else>
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star">★</span>
+         <section class="remark" v-else :stars="flashStar(item)">
+          <span class="star_active" v-for="xin in stars" :key="Math.random() + xin">★</span>
+            <span class="star" v-for="toXin in toStars" :key="Math.random() + toXin">★</span>
           <b>{{ getGrade (item) }}</b>
         </section>
       </router-link>
@@ -37,9 +34,9 @@ export default {
   data (){
     return {
       movies:[],
-      pageNum:1,
-      pageSize:17,
-      total:10
+      stars:0,
+      toStars:0,
+      total:5
     }
   },
   methods:{
@@ -49,17 +46,19 @@ export default {
         let data = res.data;
         if(data.start === 0){
            this.movies = data.subject_collection_items;
-           //console.log(data.subject_collection_items);
-        } else {
-          alert('连接失败！');
         }
       })
     },
     getGrade (item) {
       let str = item.rating;
       let grade = str.value;
-      //console.log(grade);
       return grade;
+    },
+     flashStar(item) {
+      let starNum = Math.floor(this.getGrade(item) / 2);
+      this.stars = starNum;
+      this.toStars = this.total - starNum;
+      return this.stars;
     }
   },
   mounted () {
@@ -97,8 +96,11 @@ export default {
             }
             .remark {
                 font-size: 24px;
-                .active{
-                  background: #ffb712;
+                .star {
+                  color: #9b9b9b;
+                }
+                .star_active {
+                  color: #ffb712;
                 }
                 b{
                   margin-left:10px;

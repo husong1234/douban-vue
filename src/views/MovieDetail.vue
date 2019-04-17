@@ -1,5 +1,5 @@
 <template>
   <div>
-    详情页
+    电影详情页
   </div>
 </template>
