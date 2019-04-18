@@ -8,10 +8,11 @@ export default new VueRouter({
     {
       path: '/', component: () => import('./views/Home.vue'),
       children: [
-        { path: 'movie', component:() => import('./views/Movie.vue')},
-        { path: 'movie/:id', name:'movies', component:() => import('./views/MovieDetail.vue')},
-        { path: 'music', component:() => import('./views/Music.vue')},
-        { path:'music/:id', name:'musics', component:() => import('./views/MusicDetail.vue')}
+        { path: 'movie', component: () => import('./views/Movie.vue') },
+        { path: 'movie/:id', name: 'moviedetail', component: () => import('./views/MovieDetail.vue') },
+        { path: 'music', component: () => import('./views/Music.vue') },
+        { path: 'music/:id', name: 'musicdetail', component: () => import('./views/MusicDetail.vue') },
+        { path: 'time', component: () => import('./views/Time.vue') }
       ],
     },
   ]

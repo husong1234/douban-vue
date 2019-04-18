@@ -2,19 +2,23 @@
   <section id="main">
     <ul>
       <router-link
-      tag="li"
-       :to="{
-         name:'musics',
+        tag="li"
+        :to="{
+         name:'musicdetail',
           params:{
             id:item.id
           }
-        }" class="warp" v-for="item in musics" :key="item.id">
+        }"
+        class="warp"
+        v-for="item in musics"
+        :key="item.id"
+      >
         <img :src="item.cover.url">
         <section class="info">
           <h3>{{ item.title }}</h3>
-          <p :stars="flashStar(item)">
-            <span class="star_active" v-for="xin in stars" :key="Math.random() + xin">★</span>
-            <span class="star" v-for="toXin in toStars" :key="Math.random() + toXin">★</span>
+          <p>
+            <span class="star_active" v-for="xin in flashStar(item, true)" :key="'active' + xin">★</span>
+            <span class="star" v-for="toXin in flashStar(item)" :key="toXin">★</span>
             <b>{{ getGrade (item) }}</b>
           </p>
           <b>{{ item.info }}</b>
@@ -32,7 +36,7 @@ export default {
       musics: [],
       stars: 0,
       toStars: 0,
-      total: 5,
+      total: 5
     };
   },
   methods: {
@@ -52,11 +56,13 @@ export default {
       let grade = str.value.toFixed(1);
       return grade;
     },
-    flashStar(item) {
+    flashStar(item, type) {
       let starNum = Math.floor(this.getGrade(item) / 2);
-      this.stars = starNum;
-      this.toStars = this.total - starNum;
-      return this.stars;
+      if (type) {
+        return starNum
+      } else {
+        return this.total - starNum
+      }
     }
   },
   created() {
@@ -67,6 +73,10 @@ export default {
 
 <style lang="scss">
 #main {
+  width: 100%;
+  position: absolute;
+  top:94px;
+  left: 0;
   ul {
     padding: 0 15px;
   }
