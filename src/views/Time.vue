@@ -107,11 +107,9 @@
 
         <div class="boxlist2 box_wrap" v-if="item.type === 'topic'">
           <a href="#" class="time" v-for="imgUrl in item.items"
-          :key="imgUrl">
+          :key="imgUrl.cover_url">
             <img class="dbtime" :src="imgUrl.cover_url" />
           </a>
-          <!-- <a href="#" class="time"></a>
-          <a href="#" class="time"></a> -->
         </div>
       </div>
     </div>

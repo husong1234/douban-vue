@@ -12,8 +12,32 @@ export default new VueRouter({
         { path: 'movie/:id', name: 'moviedetail', component: () => import('./views/MovieDetail.vue') },
         { path: 'music', component: () => import('./views/Music.vue') },
         { path: 'music/:id', name: 'musicdetail', component: () => import('./views/MusicDetail.vue') },
-        { path: 'time', component: () => import('./views/Time.vue') }
+        { path: 'time', component: () => import('./views/Time.vue') },
+        { path: 'time/:id', name: 'timedetail', component: () => import('./views/TimeDetail.vue') },
+        {
+          path: 'my',
+          component: () => import('./views/My.vue'),
+          beforeEnter: (to, from, next) => {
+            if (!window.isLogin) {
+              next('/login');
+            } else {
+              next();
+            }
+          }
+        },
+        {
+          path: 'sign',
+          component: () => import('./views/Sign.vue'),
+          beforeEnter: (to, from, next) => {
+            if (!window.isLogin) {
+              next('/login');
+            } else {
+              next();
+            }
+          }
+        }
       ],
     },
+    { path: '/login', component: () => import('./views/Login.vue') }
   ]
 });

@@ -1,11 +1,15 @@
 <template>
   <div>
-    电影详情页
+    详情页
   </div>
 </template>
 
 <script>
 export default {
-  name:'moviedet'
+  name:'timedet'
 }
 </script>
+
+<style>
+
+</style>

@@ -1,7 +1,9 @@
 <template>
   <div>
     <NavBar></NavBar>
-    <router-view></router-view>
+    <keep-alive exclude="timedet,musicdet,moviedet">
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 

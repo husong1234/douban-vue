@@ -1,11 +1,17 @@
 <template>
   <div>
-    电影详情页
+    个人中心页
   </div>
 </template>
 
 <script>
 export default {
-  name:'moviedet'
+
 }
 </script>
+
+<style>
+div{
+  font-size: 100px;
+}
+</style>
