@@ -93,7 +93,7 @@ export default {
 
 <style>
 #context{
-    padding:0 42px 0 42px;
+    padding:0 30px 0 30px;
     box-sizing: border-box;
     position: absolute;
     top:94px;

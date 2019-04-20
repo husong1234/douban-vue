@@ -2,9 +2,9 @@
   <div id="header">
     <div class="header">
       <div>
-        <a href="#">
+        <router-link to="/index" href="#">
           <img :src="img1" alt>
-        </a>
+        </router-link>
         <img :src="img2">
       </div>
       <div>
