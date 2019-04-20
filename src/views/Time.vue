@@ -56,28 +56,6 @@
             </div>
           </a>
         </div>
-
-         <!-- <div class="boxlist2" v-if="item.id == '52'">
-          <a href="#" class="boxlista" v-for="info in item.items" :key="info.begin_count">
-            <div class="imga">
-              <img :src="info.cover_url" alt>
-            </div>
-            <div class="boxlist3">
-              <div class="list">
-                <div class="list1">{{ info.title }}</div>
-                <div class="list2">
-                  <span v-if="info.discount_price">{{ info.discount_price }}元</span>
-                  <br>
-                  <span v-if="info.price">{{ info.price }}元</span>
-                </div>
-              </div>
-
-              <div class="list3">主讲人 {{ info.authors[0].name }}</div>
-              <div class="list4">{{ info.short_intro }}</div>
-            </div>
-          </a>
-        </div> -->
-
         <div class="boxlist2" v-if="item.type === 'package'">
           <a href="#" class="boxlista">
             <div class="imga">
