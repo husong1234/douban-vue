@@ -12,7 +12,8 @@ export default new VueRouter({
         { path: 'movie/:id', name: 'moviedetail', component: () => import('./views/MovieDetail.vue') },
         { path: 'music', component: () => import('./views/Music.vue') },
         { path: 'music/:id', name: 'musicdetail', component: () => import('./views/MusicDetail.vue') },
-        { path: 'time', component: () => import('./views/Time.vue') }
+        { path: 'time', component: () => import('./views/Time.vue') },
+        { path: 'index', component: () => import('./views/Index.vue') }
       ],
     },
   ]
