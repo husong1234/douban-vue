@@ -35,7 +35,9 @@ export default new VueRouter({
               next();
             }
           }
-        }
+        },
+        { path: 'index', component: () => import('./views/Index.vue') },
+        {path:'',redirect:'/index'}
       ],
     },
     { path: '/login', component: () => import('./views/Login.vue') }
