@@ -13,7 +13,7 @@
         v-for="item in musics"
         :key="item.id"
       >
-        <img :src="item.cover.url">
+        <img :src="img"/>
         <section class="info">
           <h3>{{ item.title }}</h3>
           <p>
@@ -36,13 +36,14 @@ export default {
       musics: [],
       stars: 0,
       toStars: 0,
-      total: 5
+      total: 5,
+      img:require('../images/music.jpg')
     };
   },
   methods: {
     getMusic() {
       axios
-        .get("/api/rexxar/api/v2/subject_collection/music_chinese/items")
+        .get("/rexxar/api/v2/subject_collection/music_chinese/items")
         .then(res => {
           if (res.data.start === 0) {
             let data = res.data;

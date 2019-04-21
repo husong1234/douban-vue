@@ -69,7 +69,7 @@ export default {
   methods: {
     getIndex() {
       axios
-        .get("/api/rexxar/api/v2/elendil/recommend_feed")
+        .get("/rexxar/api/v2/elendil/recommend_feed")
         .then(res => {
           let data = res.data;
           console.log(data);

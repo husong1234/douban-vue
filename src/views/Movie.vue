@@ -13,7 +13,7 @@
         }
       }"
       >
-        <img :src="item.cover.url">
+        <img :src="img"/>
         <p>{{ item.title }}</p>
         <section class="remark" v-if="item.null_rating_reason">
           <b>{{ item.null_rating_reason }}</b>
@@ -34,13 +34,14 @@ export default {
   data() {
     return {
       movies: [],
-      total: 5
+      total: 5,
+      img:require('../images/movie.jpg')
     };
   },
   methods: {
     getMovies() {
       axios
-        .get("/api/rexxar/api/v2/subject_collection/movie_showing/items")
+        .get("/rexxar/api/v2/subject_collection/movie_showing/items")
         .then(res => {
           let data = res.data;
           if (data.start === 0) {
